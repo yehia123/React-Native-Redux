@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import { AppRegistry } from 'react-native'
-//import Header from './src/components/header'
-import SigninBackground from "./src/components/signinBackground";
-
+import { AppRegistry, Navigator } from 'react-native'
+import Home from "./src/components/Home"
+import Profile from "./src/components/Profile"
+import { createStackNavigator } from 'react-navigation'
 export default class App extends Component {
 
     render() {
-        return (
-            <SigninBackground/>
-    )
+        return(
+        <AppStackNavigator/>
+        )
     }
 }
+
+const AppStackNavigator =  createStackNavigator({
+    Login: Home,
+    profile: Profile
+})
 
 AppRegistry.registerComponent('App', () => App)
