@@ -1,40 +1,42 @@
 import React, { Component } from 'react';
-import { ImageBackground } from 'react-native';
-import { AppRegistry, Button, View, Text, StyleSheet} from 'react-native';
+import { AppRegistry, View, Button, Text, Image, StyleSheet} from 'react-native';
+import ProfileCard from './ProfileCard';
 
 export default class Profile extends Component {
-    onPressButton = () => {
-        console.log('test');
-    }
+
     render() {
         return (
             // Try setting `flexDirection` to `column`.
-            <ImageBackground
-                resizeMode={'cover'}
-                source={{uri: 'https://placeimg.com/640/480/animals'}}
-                style={{flex: 1, width: '100%', height: '100%'}}>
-                <Button
-                    onPress={()=> this.props.navigation.goBack()}
-                    title="Sign Out"
+            <View style={styles.mainView}>
+                <Image 
+                    source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+                    style={styles.Image} />
+                <View style={styles.buttonView}>
+                    <Button 
+                    title="Upload Picture!"
                     color="#841584"
-                />
-               <View style={ styles.bigblue }>>
-                   <Text>Hello Welcome</Text>
-               </View>
-            </ImageBackground>
+                    >
+                        Sign Out
+                    </Button>
+                </View>
+            </View>
         );
     }
 };
+
 const styles = StyleSheet.create({
-    bigblue: {
-        color: 'blue',
-        fontWeight: 'bold',
-        fontSize: 30,
+    Image: {
+        height: 100, 
+        borderRadius: 50, 
+        width: 100
     },
-    red: {
-        color: 'red',
-    },
+    mainView: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 });
+
 
 AppRegistry.registerComponent('Profile', () => Profile)
 
